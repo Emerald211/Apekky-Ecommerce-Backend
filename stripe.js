@@ -205,7 +205,9 @@ Apekky Store Team.
                 `;
 
               const transporter = nodemailer.createTransport({
-                service: "Gmail",
+                host: 'smtp.gmail.com',
+                port: 587,
+                secure: false,
                 auth: {
                   user: "apekkybeautycare@gmail.com",
                   pass: process.env.GOOGLE_PASS,
