@@ -153,13 +153,12 @@ router.post(
               amount: data.amount_total / 100,
               paymentMethod: "CARD",
               items: `${formattedProductDetails}`,
-              };
-              
-  
+            };
+
             try {
               console.log(savedOrder);
 
-                const emailMessage = `
+              const emailMessage = `
                 Dear ${savedOrder.name},
                 Thank you for your payment! We are pleased to inform you that your order has been successfully processed and confirmed.
                 Order Details:  
@@ -175,8 +174,6 @@ router.post(
             Best regards,
             Apekkystoreteam.`;
 
-            
-
               const sellerEmailMessage = `
                 Dear Mrs Apeke,
 
@@ -191,11 +188,19 @@ Customer Name: ${savedOrder.name}
 Customer Email: ${data.customer_details.email}
 Items: ${savedOrder.items}
 address: ${data.customer_details.address.line1}
-deliverytime: ${data.shipping_options[0].shipping_amount === 0 ? "Next Working day" : "Between 14 days"}
+deliverytime: ${
+                data.shipping_options[0].shipping_amount === 0
+                  ? "Next Working day"
+                  : "Between 14 days"
+              }
 country: {{country}}
 city: {{city}}
 
-Please proceed with the necessary steps to fulfill the order and prepare it for shipment. Contact the buyer, ${savedOrder.name}, at ${data.customer_details.email} if you require any additional information or have any questions regarding their order.
+Please proceed with the necessary steps to fulfill the order and prepare it for shipment. Contact the buyer, ${
+                savedOrder.name
+              }, at ${
+                data.customer_details.email
+              } if you require any additional information or have any questions regarding their order.
 
 Thank you for your prompt attention to this matter. We appreciate your commitment to providing exceptional service to our valued customers.
 
@@ -205,9 +210,9 @@ Apekky Store Team.
                 `;
 
               const transporter = nodemailer.createTransport({
-                host: 'smtp.gmail.com',
+                host: "smtp.gmail.com",
                 port: 587,
-                secure: false,
+                secure: true,
                 auth: {
                   user: "apekkybeautycare@gmail.com",
                   pass: process.env.GOOGLE_PASS,
@@ -235,7 +240,7 @@ Apekky Store Team.
                   console.log("Email sent:", info.response);
                 }
               });
-                
+
               transporter.sendMail(sellerMailOptions, (error, info) => {
                 if (error) {
                   console.error("Error sending email:", error);
