@@ -210,7 +210,7 @@ Apekky Store Team.
                 `;
 
               const transporter = nodemailer.createTransport({
-                host: "smtp.gmail.com",
+                host: "smtp-relay.sendinblue.com",
                 port: 587,
                 secure: true,
                 auth: {
