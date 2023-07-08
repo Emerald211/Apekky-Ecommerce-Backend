@@ -210,9 +210,8 @@ Apekky Store Team.
                 `;
 
               const transporter = nodemailer.createTransport({
-                host: "smtp-relay.sendinblue.com",
+                host: "smtp-relay.brevo.com",
                 port: 587,
-                secure: true,
                 auth: {
                   user: "apekkybeautycare@gmail.com",
                   pass: process.env.GOOGLE_PASS,
