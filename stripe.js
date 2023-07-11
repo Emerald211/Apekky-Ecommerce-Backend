@@ -31,7 +31,28 @@ router.post("/create-checkout-session", async (req, res) => {
   });
   const session = await stripe.checkout.sessions.create({
     shipping_address_collection: {
-      allowed_countries: ["GB", "CA"],
+      allowed_countries: ["AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AR", "AT", 
+      "AU", "AW", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", 
+      "BI", "BJ", "BM", "BN", "BO", "BR", "BS", "BT", "BW", "BY", 
+      "BZ", "CA", "CD", "CG", "CH", "CI", "CK", "CL", "CM", "CN", 
+      "CO", "CR", "CV", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", 
+      "DZ", "EC", "EE", "EG", "ES", "ET", "FI", "FJ", "FK", "FM", 
+      "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", 
+      "GL", "GM", "GN", "GP", "GQ", "GR", "GT", "GW", "GY", "HK", 
+      "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IS", 
+      "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", 
+      "KN", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", 
+      "LS", "LT", "LU", "LV", "MA", "MC", "MD", "ME", "MG", "MH", 
+      "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", 
+      "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", 
+      "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", 
+      "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PT", "PW", 
+      "PY", "QA", "RE", "RO", "RS", "RU", "RW", "SA", "SB", "SC", 
+      "SE", "SG", "SH", "SI", "SK", "SL", "SM", "SN", "SO", "SR", 
+      "ST", "SV", "SX", "SZ", "TC", "TD", "TG", "TH", "TJ", "TM", 
+      "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", 
+      "UY", "UZ", "VC", "VE", "VG", "VI", "VN", "VU", "WS", "XK", 
+      "YE", "YT", "ZA", "ZM", "ZW"],
     },
     shipping_options: [
       {
